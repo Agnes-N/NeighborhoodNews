@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+
+{% load staticfiles %}
+{% block content %}
+{{block.super}}
+
+<div class="container">
+    <h1> Welcome </h1>
+</div>
+
+
+{% endblock %}
+
+<!--End of the block content-->
+{% block scripts %} 
+{{block.super}}
+  <script type="text/javascript" src="{%static 'js/base.js'%}"></script>
+{% endblock %}
