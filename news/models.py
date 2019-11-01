@@ -55,3 +55,29 @@ class Neighborhood(models.Model):
 
     def __str__(self):
         return self.neigborhood_name
+
+class Business(models.Model):
+    business_name = models.CharField(max_length = 30)
+    location = models.CharField(max_length = 30)
+    email = models.EmailField(null= True, unique= True)
+    neighborhood = models.ForeignKey(Neighborhood,on_delete = models.CASCADE, null=True)
+    user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
+
+    @classmethod
+    def create_business(cls):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+
+    @classmethod
+    def update_business(cls,id,value):
+        cls.objects.filter(id = id).update(business_name = new_business)
+
+    @classmethod
+    def filter_business_by_id(cls,id):
+        neigborhood = cls.objects.filter(id = id)
+        return neigborhood
+
+    def __str__(self):
+        return self.business_name
