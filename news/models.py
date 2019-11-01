@@ -7,12 +7,12 @@ class NewsLetterRecipients(models.Model):
     email = models.EmailField()
 
 class Profile(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
     profile_picture = models.ImageField(upload_to = 'profile_photos/', null=True)
     bio = models.CharField(max_length =300)
     contact = models.CharField(max_length =30)  
 
-     @classmethod
+    @classmethod
     def get_profile(cls):
         all_profiles = cls.objects.all()
         return all_profiles
@@ -27,7 +27,3 @@ class Profile(models.Model):
         return str(self.user)
 
 
-class Neighborhood(models.Model):
-    name = models.CharField(max_length = 30)
-    location = models.CharField(max_length = 30)
-    occupants = models.CharField(max_length = 30)
