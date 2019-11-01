@@ -27,3 +27,8 @@ class Profile(models.Model):
         return str(self.user)
 
 
+class Neighborhood(models.Model):
+    name = models.CharField(max_length = 30)
+    location = models.CharField(max_length = 30)
+    occupants = models.CharField(max_length = 30)
+    user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
