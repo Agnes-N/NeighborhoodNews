@@ -28,24 +28,24 @@ class Profile(models.Model):
 
 
 class Neighborhood(models.Model):
-    neigborhood_name = models.CharField(max_length = 30)
+    neighborhood_name = models.CharField(max_length = 30)
     location = models.CharField(max_length = 30)
     occupants = models.IntegerField(default = 0, null = True)
     user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
 
     @classmethod
-    def create_neigborhood(cls):
+    def create_neighborhood(cls):
         self.save()
 
-    def delete_neigborhood(self):
+    def delete_neighborhood(self):
         self.delete()
 
     @classmethod
-    def update_neigborhood(cls,id,value):
-        cls.objects.filter(id = id).update(neigborhood_name = new_hood)
+    def update_neighborhood(cls,id,value):
+        cls.objects.filter(id = id).update(neighborhood_name = new_hood)
 
     @classmethod
-    def filter_neigborhood_by_id(cls,id):
+    def filter_neighborhood_by_id(cls,id):
         neigborhood = cls.objects.filter(id = id)
         return neigborhood
 
@@ -54,7 +54,7 @@ class Neighborhood(models.Model):
         cls.objects.filter(id = id).update(occupants = new_occupant)
 
     def __str__(self):
-        return self.neigborhood_name
+        return self.neighborhood_name
 
 class Business(models.Model):
     business_name = models.CharField(max_length = 30)
