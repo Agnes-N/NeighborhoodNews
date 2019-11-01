@@ -53,7 +53,9 @@ def add_neighborhood(request):
     return render(request, 'add_hood.html', {"form": form})
 
 
-
+def neigborhood(request,id):
+        hoods = Neighborhood.filter_neigborhood_by_id(id)
+        return render(request,'neigborhood.html', {"hoods":hoods})
 
 
 

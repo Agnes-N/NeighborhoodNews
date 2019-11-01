@@ -9,6 +9,7 @@ urlpatterns=[
     url(r'^new/profile$', views.add_profile, name='edit'),
     url(r'^myprofile$', views.my_profile, name='myprofile'),
     url(r'^new/upload$', views.add_neighborhood, name='upload'),
+    url(r'^hood/(\d+)', views.neigborhood, name = 'hood'),
 ]
 
 if settings.DEBUG:

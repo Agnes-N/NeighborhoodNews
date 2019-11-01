@@ -4,11 +4,7 @@
 {{block.super}}
 
 <div class="container" style="margin-top: 3%">
-    {% for h in all_hoods %}
-    
-      <a href="{% url 'hood' h.id%}"><h5> {{h.neigborhood_name}} </h5></a>
-    <hr>              
-    {% endfor %}     
+       
   
 </div>
 {% endblock %}

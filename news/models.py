@@ -35,8 +35,7 @@ class Neighborhood(models.Model):
 
     @classmethod
     def create_neigborhood(cls):
-        hoods = cls.objects.all()
-        return hoods
+        self.save()
 
     def delete_neigborhood(self):
         self.delete()
@@ -46,8 +45,8 @@ class Neighborhood(models.Model):
         cls.objects.filter(id = id).update(neigborhood_name = new_hood)
 
     @classmethod
-    def get_neigborhood_by_id(cls,id):
-        neigborhood = cls.objects.filter(id = id).all()
+    def filter_neigborhood_by_id(cls,id):
+        neigborhood = cls.objects.filter(id = id)
         return neigborhood
 
     @classmethod
