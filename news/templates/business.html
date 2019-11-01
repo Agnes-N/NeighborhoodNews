@@ -1,0 +1,20 @@
+{%extends 'base.html'%}
+{% load staticfiles %}
+{% block content %}
+{{block.super}}
+
+<div class="container" style="margin-top: 3%">
+    <a class="btn btn-info" href="{%url 'addbusiness'%}">Add business</a>
+
+    <div class="row">
+        {% for h in busines %}
+        <div class="col-md-3">
+            <h5> {{h.business_name}} </h5>
+            <h5> {{h.location}} </h5>
+            <h5> {{h.email}} </h5>
+        </div>             
+        {% endfor %}
+     </div>
+
+</div>
+{% endblock %}
