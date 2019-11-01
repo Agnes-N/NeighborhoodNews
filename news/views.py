@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from .email import send_welcome_email
 from .models import NewsLetterRecipients
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required(login_url='/accounts/login/')
 def welcome(request):
     message = "Welcome"
     return render(request, 'welcome.html', {"message": message})
