@@ -1,4 +1,4 @@
-#!/home/wecode/Documents/Django_Project/NeighborhoodNews/virtual/bin/python
+#!/home/wecode/Documents/Django_Projects/NeighborhoodNews/virtual/bin/python
 from django.core import management
 
 if __name__ == "__main__":

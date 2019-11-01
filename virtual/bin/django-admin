@@ -1,4 +1,4 @@
-#!/home/wecode/Documents/Django_Project/NeighborhoodNews/virtual/bin/python
+#!/home/wecode/Documents/Django_Projects/NeighborhoodNews/virtual/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
