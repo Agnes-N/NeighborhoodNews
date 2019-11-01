@@ -8,6 +8,7 @@ urlpatterns=[
     url(r'^ajax/newsletter/$', views.newsletter, name='newsletter'),
     url(r'^new/profile$', views.add_profile, name='edit'),
     url(r'^myprofile$', views.my_profile, name='myprofile'),
+    url(r'^new/upload$', views.add_neighborhood, name='upload'),
 ]
 
 if settings.DEBUG:
