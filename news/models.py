@@ -33,8 +33,7 @@ class Neighborhood(models.Model):
     occupants = models.IntegerField(default = 0, null = True)
     user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
 
-    @classmethod
-    def create_neighborhood(cls):
+    def create_neighborhood(self):
         self.save()
 
     def delete_neighborhood(self):
@@ -63,8 +62,7 @@ class Business(models.Model):
     neighborhood = models.ForeignKey(Neighborhood,on_delete = models.CASCADE, null=True)
     user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
 
-    @classmethod
-    def create_business(cls):
+    def create_business(self):
         self.save()
 
     def delete_business(self):
@@ -81,3 +79,30 @@ class Business(models.Model):
 
     def __str__(self):
         return self.business_name
+
+class Post(models.Model):
+    name = models.CharField(max_length = 30)
+    picture = models.ImageField(upload_to = 'photos/', null=True)
+    description = models.CharField(max_length = 30)
+    neighborhood = models.ForeignKey(Neighborhood,on_delete = models.CASCADE, null=True)
+    user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
+    date = models.DateTimeField(auto_now_add=True, null=True)
+
+    @classmethod
+    def get_all_posts(cls):
+        post = cls.objects.all()
+        return post
+
+    def save_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()
+
+    @classmethod
+    def filter_post_by_id(cls,id):
+        post = cls.objects.filter(id = id)
+        return post
+        
+    def __str__(self):
+        return self.neighborhood

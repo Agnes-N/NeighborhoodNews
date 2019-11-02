@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from .email import send_welcome_email
-from .models import NewsLetterRecipients,Profile,Neighborhood,Business
-from .forms import NewProfileForm,NewNeighborhoodForm,NewBusinessForm
+from .models import NewsLetterRecipients,Profile,Neighborhood,Business,Post
+from .forms import NewProfileForm,NewNeighborhoodForm,NewBusinessForm,NewPostForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -54,10 +54,10 @@ def add_neighborhood(request):
 
 @login_required(login_url='/accounts/login/')
 def neighborhood(request,id):
-    hoods = Neighborhood.filter_neighborhood_by_id(id)
+    # hoods = Neighborhood.filter_neighborhood_by_id(id)
+    posts = Post.filter_post_by_id(id)
     busines = Business.filter_business_by_id(id)
-    return render(request,'business.html', {"hoods":hoods, "busines":busines})
-
+    return render(request,'business.html', {"busines":busines,"posts":posts})
 
 @login_required(login_url='/accounts/login/')
 def add_business(request,id):
@@ -77,6 +77,22 @@ def add_business(request,id):
     return render(request, 'add_business.html', {"form": form})
 
 
+@login_required(login_url='/accounts/login/')
+def add_post(request):
+    current_user = request.user
+    hoods = Neighborhood.filter_neighborhood_by_id(hood_id = id)
+    if request.method == 'POST':
+        form = NewPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            hood = form.save(commit=False)
+            hood.user = current_user
+            hood.neighborhood = hoods
+            hood.save()
+            return redirect('hood',id)
+
+    else:
+        form = NewPostForm()
+    return render(request, 'add_post.html', {"form": form})
 
 
 
