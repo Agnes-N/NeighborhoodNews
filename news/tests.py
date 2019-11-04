@@ -77,7 +77,7 @@ class BusinessTestClass(TestCase):
         self.new_business.create_business()
         business = Business.filter_business_by_id(1)
 
-#     def test_update_business(self):
-#         self.new_business.create_business()
-#         business = Business.filter_business_by_id(1)
-        # business.update_business('Another Business')
+    def test_update_business(self):
+        self.new_business.create_business()
+        business = Business.filter_business_by_id(1)
+        business.update_business('Another Business')
