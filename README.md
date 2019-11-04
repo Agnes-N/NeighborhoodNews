@@ -1,6 +1,6 @@
-# Awwadrs
+# Neighborhood
 
-An application that allows users to post their projects that they have created and get rated by their peers.
+This is an application that allows you to be aware about everything that happening in your neighborhood.
 
 ## Author
 
