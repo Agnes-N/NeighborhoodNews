@@ -53,15 +53,15 @@ class NeighborhoodTestClass(TestCase):
         neighborhood = Neighborhood.filter_neighborhood_by_id(1)
         neighborhood.new_neighborhood = 'Another Neighborhood'
 
-# class BusinessTestClass(TestCase):
-#     def setUp(self):
-#         self.new_user = User.objects.create(id = 1,username = 'Aggy')
-#         self.new_neighborhood = Neighborhood(id = 1,neighborhood_name = 'venice')
-#         self.new_neighborhood.save()
-#         self.new_business = Business(id = 1,business_name='Business',user=self.new_user,location='Location',email='business@email.com')
+class BusinessTestClass(TestCase):
+    def setUp(self):
+        self.new_user = User.objects.create(id = 1,username = 'Aggy')
+        self.new_neighborhood = Neighborhood(id = 1,neighborhood_name = 'venice')
+        self.new_neighborhood.save()
+        self.new_business = Business(id = 1,business_name='Business',user=self.new_user,location='Location',email='business@email.com')
 
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.new_business,Business))
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_business,Business))
 
 #     def test_create_business(self):
 #         self.new_business.create_business()
