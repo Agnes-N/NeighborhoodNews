@@ -25,14 +25,14 @@ class ProfileTestClass(TestCase):
        self.assertTrue(len(profile) >= 0)
 
 
-# class NeighborhoodTestClass(TestCase):
-#     def setUp(self):
-#         self.user = User.objects.create(id = 1,username = 'Aggy')
-#         self.profile = Profile(location = 'remera',profile_picture = 'p1.jpeg', bio = 'cool', user = self.user)
-#         self.new_neighborhood = Neighborhood(id = 1,neighborhood_name = 'venice')
+class NeighborhoodTestClass(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(id = 1,username = 'Aggy')
+        self.profile = Profile(location = 'remera',profile_picture = 'p1.jpeg', bio = 'cool', user = self.user)
+        self.new_neighborhood = Neighborhood(id = 1,neighborhood_name = 'venice')
 
-#     def test_instance(self):
-#         self.assertTrue(isinstance(self.new_neighborhood,Neighborhood))
+    def test_instance(self):
+        self.assertTrue(isinstance(self.new_neighborhood,Neighborhood))
 
 #     def test_create_neighborhood(self):
 #         self.new_neighborhood.create_neighborhood()
