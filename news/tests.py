@@ -48,10 +48,10 @@ class NeighborhoodTestClass(TestCase):
         self.new_neighborhood.create_neighborhood()
         neighborhood = Neighborhood.filter_neighborhood_by_id(1)
 
-#     def test_update_neighborhood(self):
-#         self.new_neighborhood.create_neighborhood()
-#         neighborhood = Neighborhood.filter_neighborhood_by_id(1)
-#         neighborhood.new_neighborhood = 'Another Neighborhood'
+    def test_update_neighborhood(self):
+        self.new_neighborhood.create_neighborhood()
+        neighborhood = Neighborhood.filter_neighborhood_by_id(1)
+        neighborhood.new_neighborhood = 'Another Neighborhood'
 
 # class BusinessTestClass(TestCase):
 #     def setUp(self):
