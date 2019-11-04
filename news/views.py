@@ -62,6 +62,7 @@ def neighborhood(request,id):
 @login_required(login_url='/accounts/login/')
 def add_business(request,id):
     current_user = request.user
+    bus = Business.objects.all()
     hoods = Neighborhood.filter_neighborhood_by_id(hood_id = id)
     if request.method == 'POST':
         form = NewBusinessForm(request.POST, request.FILES)
