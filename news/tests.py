@@ -68,10 +68,10 @@ class BusinessTestClass(TestCase):
         businesses = Business.objects.all()
         self.assertTrue(len(businesses) > 0)
 
-#     def test_delete_business(self):
-#         self.new_business.delete_business()
-#         businesses = Business.objects.all()
-#         self.assertTrue(len(businesses) == 0)
+    def test_delete_business(self):
+        self.new_business.delete_business()
+        businesses = Business.objects.all()
+        self.assertTrue(len(businesses) == 0)
 
 #     def test_filter_business_by_id(self):
 #         self.new_business.create_business()
