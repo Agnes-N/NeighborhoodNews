@@ -62,8 +62,7 @@ def neighborhood(request,id):
 @login_required(login_url='/accounts/login/')
 def add_business(request,id):
     current_user = request.user
-    bus = Business.objects.all()
-    hoods = Neighborhood.filter_neighborhood_by_id(hood_id = id)
+    hoods = Neighborhood.filter_neighborhood_by_id(id = id)
     if request.method == 'POST':
         form = NewBusinessForm(request.POST, request.FILES)
         if form.is_valid():
@@ -75,13 +74,13 @@ def add_business(request,id):
 
     else:
         form = NewBusinessForm()
-    return render(request, 'add_business.html', {"form": form})
+    return render(request, 'add_business.html', {"form": form,"id":id})
 
 
 @login_required(login_url='/accounts/login/')
-def add_post(request):
+def add_post(request,id):
     current_user = request.user
-    hoods = Neighborhood.filter_neighborhood_by_id(hood_id = id)
+    hoods = Neighborhood.filter_neighborhood_by_id(id = id)
     if request.method == 'POST':
         form = NewPostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -93,7 +92,7 @@ def add_post(request):
 
     else:
         form = NewPostForm()
-    return render(request, 'add_post.html', {"form": form})
+    return render(request, 'add_post.html', {"form": form,"id":id})
 
 
 
@@ -109,3 +108,14 @@ def newsletter(request):
     send_welcome_email(name, email)
     data = {'success': 'Your account has been successfully created'}
     return JsonResponse(data)
+
+# @login_required(login_url='/accounts/login/')
+def search_business(request):
+    if 'busines' in request.GET and request.GET["busines"]:
+        search_term = request.GET.get("busines")
+        searched_busines = Business.search_by_business_name(search_term)
+        message = f"{search_term}"
+        return render(request, "search.html",{"message":message,"businesses": searched_busines})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})

@@ -77,13 +77,18 @@ class Business(models.Model):
         neigborhood = cls.objects.filter(id = id)
         return neigborhood
 
+    @classmethod
+    def search_by_business_name(cls,search_term):
+        busineses = cls.objects.filter(business_name__icontains = search_term)
+        return busineses
+
     def __str__(self):
         return self.business_name
 
 class Post(models.Model):
-    name = models.CharField(max_length = 30)
-    picture = models.ImageField(upload_to = 'photos/', null=True)
-    description = models.CharField(max_length = 30)
+    name = models.CharField(max_length = 250)
+    # picture = models.ImageField(upload_to = 'photos/', null=True)
+    description = models.CharField(max_length = 300)
     neighborhood = models.ForeignKey(Neighborhood,on_delete = models.CASCADE, null=True)
     user = models.ForeignKey(User,on_delete = models.CASCADE, null=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
@@ -105,4 +110,4 @@ class Post(models.Model):
         return post
         
     def __str__(self):
-        return self.neighborhood
+        return self.name

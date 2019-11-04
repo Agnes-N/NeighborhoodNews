@@ -10,8 +10,9 @@ urlpatterns=[
     url(r'^myprofile$', views.my_profile, name='myprofile'),
     url(r'^new/upload/$', views.add_neighborhood, name='upload'),
     url(r'^hood/(\d+)/$', views.neighborhood, name='hood'),
-    url(r'^addbusiness/$', views.add_business, name = 'addbusiness'),
-    url(r'^addpost/$', views.add_post, name = 'addpost'),
+    url(r'^addbusiness/(\d+)/$', views.add_business, name = 'addbusiness'),
+    url(r'^addpost/(\d+)/$', views.add_post, name = 'addpost'),
+    url(r'^search/$',views.search_business, name = 'search'),
 ]
 
 if settings.DEBUG:

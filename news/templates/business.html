@@ -66,9 +66,10 @@
                     <h5> {{p.description}} </h5>
                     <h5> {{p.neighborhood}} </h5>
                     <h5> {{p.date}} </h5>  
-                    <hr>           
+                    <hr> 
+                    <p><button class="button"><a href="{% url 'addpost' p.id%}">Add Post</a></button></p>             
                     {% endfor %}
-                    <p><button class="button"><a href="{% url 'addpost' %}">Add Post</a></button></p>           
+                            
                 </div>
             </div>
             </div>
@@ -82,8 +83,9 @@
                 <h5> {{h.location}} </h5>
                 <h5> {{h.email}} </h5>
                 <hr>
+                <p><button class="button"><a href="{% url 'addbusiness' h.id %}">Add business</a></button></p>
                 {% endfor %}
-                <p><button class="button"><a href="{% url 'addbusiness' %}">Add business</a></button></p>           
+                           
             </div>
         </div>
         </div> 

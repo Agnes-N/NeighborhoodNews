@@ -75,10 +75,9 @@ body {
       </div>
     </div>
       <div class="col-md-6" style="margin-top:1%">
-        <form action="">
-          <input type="text" class="input-sm form-control" name="project_name" placeholder="Search">
-        
-        </form>
+        <form action="{% url 'search' %}" class="form-inline my-2 my-lg-0">
+          <input type="text" class="input-sm form-control" name="busines" placeholder="Search">
+      </form> 
       </div>
       <div class="col-md-2" style="margin-top:1%;">      
           <a href="{% url 'myprofile' %}" style="color:black"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a> 
