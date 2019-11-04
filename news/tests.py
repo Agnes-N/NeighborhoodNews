@@ -73,9 +73,9 @@ class BusinessTestClass(TestCase):
         businesses = Business.objects.all()
         self.assertTrue(len(businesses) == 0)
 
-#     def test_filter_business_by_id(self):
-#         self.new_business.create_business()
-#         business = Business.filter_business_by_id(1)
+    def test_filter_business_by_id(self):
+        self.new_business.create_business()
+        business = Business.filter_business_by_id(1)
 
 #     def test_update_business(self):
 #         self.new_business.create_business()
