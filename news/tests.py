@@ -39,10 +39,10 @@ class NeighborhoodTestClass(TestCase):
         neighborhoods = Neighborhood.objects.all()
         self.assertTrue(len(neighborhoods) > 0)
 
-#     def test_delete_neighborhood(self):
-#         self.new_neighborhood.delete_neighborhood()
-#         neighborhoods = Neighborhood.objects.all()
-#         self.assertTrue(len(neighborhoods) == 0)
+    def test_delete_neighborhood(self):
+        self.new_neighborhood.delete_neighborhood()
+        neighborhoods = Neighborhood.objects.all()
+        self.assertTrue(len(neighborhoods) == 0)
 
 #     def test_filter_neighborhood_by_id(self):
 #         self.new_neighborhood.create_neighborhood()
